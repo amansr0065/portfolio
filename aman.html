@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aman Srivatsa | Portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --bg-color: #0a0a0a;
+            --card-bg: #161616;
+            --text-primary: #ffffff;
+            --text-secondary: #a0a0a0;
+            --accent-color: #7b2cbf;
+            --accent-glow: #9d4edd;
+            --gradient: linear-gradient(90deg, #7b2cbf, #3a86ff);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-primary);
+            line-height: 1.6;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 50px;
+            background: rgba(10, 10, 10, 0.9);
+            backdrop-filter: blur(10px);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 1px solid #333;
+        }
+
+        .logo {
+            font-weight: 800;
+            font-size: 1.5rem;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .nav-links {
+            list-style: none;
+            display: flex;
+            gap: 30px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-secondary);
+            font-weight: 500;
+            font-size: 0.9rem;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--text-primary);
+            text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+        }
+
+        .hero {
+            min-height: 85vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 0 20px;
+            background: radial-gradient(circle at center, #1a0b2e 0%, #0a0a0a 70%);
+        }
+
+        .hero h1 {
+            font-size: 4rem;
+            font-weight: 800;
+            margin: 25px 0;
+            line-height: 1.1;
+        }
+
+        .text-gradient {
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .badge {
+            display: inline-block;
+            background: rgba(123, 44, 191, 0.15);
+            color: var(--accent-glow);
+            padding: 8px 20px;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            border: 1px solid rgba(123, 44, 191, 0.3);
+            margin-bottom: 10px;
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+            max-width: 600px;
+            margin: 0 auto 40px auto;
+        }
+
+        .btn-main {
+            display: inline-block;
+            padding: 14px 35px;
+            background: var(--gradient);
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 1rem;
+            transition: transform 0.2s, box-shadow 0.2s;
+            border: none;
+        }
+
+        .btn-main:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 0 25px rgba(123, 44, 191, 0.6);
+        }
+
+        .section-container {
+            padding: 100px 10%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            margin-bottom: 50px;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .section-title::before {
+            content: '';
+            display: block;
+            width: 5px;
+            height: 40px;
+            background: var(--accent-color);
+            border-radius: 2px;
+            box-shadow: 0 0 10px var(--accent-glow);
+        }
+
+        .card {
+            background: var(--card-bg);
+            padding: 35px;
+            border-radius: 16px;
+            border: 1px solid #333;
+            margin-bottom: 25px;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            border-color: var(--accent-color);
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+        }
+
+        .card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 5px;
+            color: var(--text-primary);
+        }
+
+        .institution, .company {
+            color: var(--accent-glow);
+            font-size: 0.9rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 15px;
+            display: block;
+        }
+
+        .score {
+            display: inline-block;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 5px 12px;
+            border-radius: 6px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin: 10px 0;
+            color: #fff;
+        }
+
+        .achievements {
+            list-style: none;
+            margin-top: 15px;
+            padding-left: 5px;
+        }
+
+        .achievements li {
+            margin-bottom: 8px;
+            color: var(--text-secondary);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .experience-card p {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+        }
+
+        .duration {
+            font-size: 0.85rem;
+            color: #666;
+            margin-bottom: 15px;
+            font-style: italic;
+        }
+
+        .skills-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .skill-tag {
+            background: rgba(255, 255, 255, 0.03);
+            padding: 12px 25px;
+            border-radius: 50px;
+            border: 1px solid #333;
+            color: var(--text-secondary);
+            font-weight: 500;
+            transition: 0.3s;
+            cursor: default;
+        }
+
+        .skill-tag:hover {
+            background: var(--accent-color);
+            border-color: var(--accent-color);
+            color: white;
+            box-shadow: 0 0 15px var(--accent-color);
+        }
+
+        footer {
+            text-align: center;
+            padding: 60px 20px;
+            border-top: 1px solid #222;
+            color: var(--text-secondary);
+            background: #050505;
+        }
+
+        footer a {
+            color: var(--accent-glow);
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        .location {
+            margin-top: 10px;
+            font-size: 0.9rem;
+        }
+
+        .copyright {
+            margin-top: 30px;
+            font-size: 0.8rem;
+            color: #444;
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.8rem;
+            }
+            
+            .navbar {
+                flex-direction: column;
+                gap: 20px;
+                padding: 20px;
+            }
+
+            .section-container {
+                padding: 60px 20px;
+            }
+
+            .grid-container {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="logo">AMAN SRIVATSA</div>
+        <ul class="nav-links">
+            <li><a href="#about">About</a></li>
+            <li><a href="#education">Education</a></li>
+            <li><a href="#experience">Experience</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <header id="about" class="hero">
+        <div class="hero-content">
+            <span class="badge">BBA Student & Aspiring Strategist</span>
+            <h1>Building the Future of <br><span class="text-gradient">Digital Business</span></h1>
+            <p>Student at IIM Bangalore (DBE) | Event Management Professional | Public Speaker</p>
+            <a href="#contact" class="btn-main">Get in Touch</a>
+        </div>
+    </header>
+
+    <section id="education" class="section-container">
+        <h2 class="section-title">Education Journey</h2>
+        <div class="timeline">
+            
+            <div class="card">
+                <h3>BBA in Digital Business & Entrepreneurship</h3>
+                <span class="institution">IIM Bangalore | 2024 - 2027</span>
+                <p style="color: #ccc;">Specializing in Strategy, Operations, and Digital Transformation. Exploring the intersection of business and technology.</p>
+            </div>
+
+            <div class="card">
+                <h3>Senior Secondary (12th)</h3>
+                <span class="institution">DPS Ranchi</span>
+                <div class="score">Score: 70%</div>
+                <ul class="achievements">
+                    <li>🏀 Basketball Team Member</li>
+                    <li>🎭 Lead Actor in School Plays</li>
+                </ul>
+            </div>
+
+            <div class="card">
+                <h3>Secondary School (10th)</h3>
+                <span class="institution">St. Thomas School Ranchi (ICSE)</span>
+                <div class="score">Score: 88%</div>
+                <ul class="achievements">
+                    <li>🗣️ MUN Vice President</li>
+                    <li>🎤 Member of Debating Society</li>
+                    <li>🏀 Basketball Team Captain</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <section id="experience" class="section-container">
+        <h2 class="section-title">Experience & Internships</h2>
+        <div class="grid-container">
+            
+            <div class="card experience-card">
+                <h3>Office Manager (Intern)</h3>
+                <span class="company">Event Management Firm | Delhi</span>
+                <p class="duration">6 Months Internship</p>
+                <p>Managed on-ground operations, coordinated with vendors, and streamlined event logistics for high-profile clients.</p>
+            </div>
+
+            <div class="card experience-card">
+                <h3>HR Intern</h3>
+                <span class="company">Corporate HR Department</span>
+                <p class="duration">2 Months Internship</p>
+                <p>Assisted in recruitment processes, managed employee databases, and streamlined onboarding documentation.</p>
+            </div>
+
+        </div>
+    </section>
+
+    <section class="section-container">
+        <h2 class="section-title">Beyond Academics</h2>
+        <div class="skills-grid">
+            <div class="skill-tag">Public Speaking</div>
+            <div class="skill-tag">Tally & Accounting</div>
+            <div class="skill-tag">Web Design (Cyberpunk Style)</div>
+            <div class="skill-tag">Fitness & Nutrition</div>
+            <div class="skill-tag">Event Logistics</div>
+            <div class="skill-tag">Team Leadership</div>
+        </div>
+    </section>
+
+    <footer id="contact">
+        <p>Connect with me at <br><a href="mailto:aman.srivatsa24@iimb.ac.in" style="font-size: 1.2rem;">aman.srivatsa24@iimb.ac.in</a></p>
+        <p class="location">📍 Based in Ranchi</p>
+        <p class="copyright">© 2026 Aman Srivatsa. All Rights Reserved.</p>
+    </footer>
+
+</body>
+</html>
